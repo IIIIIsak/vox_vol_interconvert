@@ -1,0 +1,54 @@
+
+# >>>> INPUT FILE FOR MC-GPU v1.3 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#[SECTION SIMULATION CONFIG v.2009-05-12]
+767880000                          # TOTAL NUMBER OF HISTORIES, OR SIMULATION TIME IN SECONDS IF VALUE < 100000
+20220918                       # RANDOM SEED (ranecu PRNG)
+1                               # GPU NUMBER TO USE WHEN MPI IS NOT USED, OR TO BE AVOIDED IN MPI RUNS
+512                             # GPU THREADS PER CUDA BLOCK (multiple of 32)
+1000                             # SIMULATED HISTORIES PER GPU THREAD
+
+#[SECTION SOURCE v.2011-07-12]
+/mnt/no4/kanshengqi/MCGPU/energySpectrum/SCATTER_80kVp_0.4mmCu_1.0mmAl.spec   # X-RAY ENERGY SPECTRUM FILE
+12.11250 -64.12000 13.00500              # SOURCE POSITION: X Y Z [cm]
+0.0   1.0    0.0                # SOURCE DIRECTION COSINES: U V W
+-1   -1                           # POLAR AND AZIMUTHAL APERTURES FOR THE FAN BEAM [degrees] (input negative to cover the whole detector)
+
+#[SECTION IMAGE DETECTOR v.2009-12-02]
+/mnt/no4/kanshengqi/MCGPU/ICRP145/projs/female_chest_no_arm_0.85/spec_80/feChest   # OUTPUT IMAGE FILE NAME
+324    237                      # NUMBER OF PIXELS IN THE IMAGE: Nx Nz
+39.9168 29.1984                     # IMAGE SIZE (width, height): Dx Dz [cm]
+125                           # SOURCE-TO-DETECTOR DISTANCE (detector set in front of the source, perpendicular to the initial direction)
+
+#[SECTION CT SCAN TRAJECTORY v.2011-10-25]
+400                             # NUMBER OF PROJECTIONS (beam must be perpendicular to Z axis, set to 1 for a single projection)
+0.9                            # ANGLE BETWEEN PROJECTIONS [degrees] (360/num_projections for full CT)
+ 0.0 3600.0                     # ANGLES OF INTEREST (projections outside the input interval will be skipped)
+75                            # SOURCE-TO-ROTATION AXIS DISTANCE (rotation radius, axis parallel to Z)
+ 0.0                            # VERTICAL TRANSLATION BETWEEN PROJECTIONS (HELICAL SCAN)
+
+#[SECTION VOXELIZED GEOMETRY FILE v.2009-11-30]
+/mnt/no4/kanshengqi/MCGPU/ICRP145/Vox/female_chest_no_arm_0.85.vox          # VOXEL GEOMETRY FILE (penEasy 2008 format; .gz accepted)
+
+#[SECTION MATERIAL FILE LIST v.2009-11-30]
+/home/kanshengqi/software/MCGPULite/material/adipose_ICRP110__5-120keV.mcgpu.gz   # 1
+/home/kanshengqi/software/MCGPULite/material/air__5-120keV.mcgpu.gz               # 2
+/home/kanshengqi/software/MCGPULite/material/blood_ICRP110__5-120keV.mcgpu.gz     # 3
+/home/kanshengqi/software/MCGPULite/material/bone_ICRP110__5-120keV.mcgpu.gz      # 4
+/home/kanshengqi/software/MCGPULite/material/brain_ICRP110__5-120keV.mcgpu.gz     # 5
+/home/kanshengqi/software/MCGPULite/material/breast_75-25_Hammerstein__5-120keV.mcgpu.gz    # 6
+/home/kanshengqi/software/MCGPULite/material/cartilage_ICRP110__5-120keV.mcgpu.gz     # 7
+/home/kanshengqi/software/MCGPULite/material/soft_tissue_ICRP110__5-120keV.mcgpu.gz   # 8 (None)
+/home/kanshengqi/software/MCGPULite/material/glands_others_ICRP110__5-120keV.mcgpu.gz # 9
+/home/kanshengqi/software/MCGPULite/material/liver_ICRP110__5-120keV.mcgpu.gz     # 10
+/home/kanshengqi/software/MCGPULite/material/lung_ICRP110__5-120keV.mcgpu.gz      # 11
+/home/kanshengqi/software/MCGPULite/material/muscle_ICRP110__5-120keV.mcgpu.gz    # 12
+/home/kanshengqi/software/MCGPULite/material/soft_tissue_ICRP110__5-120keV.mcgpu.gz   # 13 (None)
+/home/kanshengqi/software/MCGPULite/material/red_marrow_Woodard__5-120keV.mcgpu.gz    # 14
+/home/kanshengqi/software/MCGPULite/material/skin_ICRP110__5-120keV.mcgpu.gz      # 15
+/home/kanshengqi/software/MCGPULite/material/soft_tissue_ICRP110__5-120keV.mcgpu.gz   # 16
+/home/kanshengqi/software/MCGPULite/material/stomach_intestines_ICRP110__5-120keV.mcgpu.gz # 17
+/home/kanshengqi/software/MCGPULite/material/soft_tissue_ICRP110__5-120keV.mcgpu.gz   # 18 (None)
+/home/kanshengqi/software/MCGPULite/material/water__5-120keV.mcgpu.gz             # 19
+
+# >>>> END INPUT FILE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
